@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,7 +26,7 @@ public class OrderService {
     @Autowired
     private PaymentRepository paymentRepository;
 
-    public Order createOrder(String userId) {
+    public OrderResponse createOrder(String userId) {
         List<Cart_Item> cartItems = cartService.getCartItems(userId);
         if (cartItems.isEmpty()) {
             throw new RuntimeException("Cart is empty");
@@ -42,17 +43,29 @@ public class OrderService {
         order.setCreatedAt(Instant.now());
         Order savedOrder = orderRepository.save(order);
 
+        List<Order_Item> orderItems = new ArrayList<>();
         for (Cart_Item cartItem : cartItems) {
             Order_Item orderItem = new Order_Item();
             orderItem.setOrderId(savedOrder.getId());
             orderItem.setProductId(cartItem.getProductId());
             orderItem.setQuantity(cartItem.getQuantity());
             orderItem.setPrice(cartItem.getProduct().getPrice());
-            orderItemRepository.save(orderItem);
+            Order_Item savedOrderItem = orderItemRepository.save(orderItem);
+            orderItems.add(savedOrderItem);
         }
 
         cartService.clearCart(userId);
-        return savedOrder;
+
+        // Build OrderResponse with items
+        OrderResponse response = new OrderResponse();
+        response.setId(savedOrder.getId());
+        response.setUserId(savedOrder.getUserId());
+        response.setTotalAmount(savedOrder.getTotalAmount());
+        response.setStatus(savedOrder.getStatus());
+        response.setCreatedAt(savedOrder.getCreatedAt());
+        response.setItems(orderItems);
+
+        return response;
     }
 
     public OrderResponse getOrder(String id) {

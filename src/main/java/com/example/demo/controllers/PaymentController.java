@@ -17,7 +17,7 @@ public class PaymentController {
     @Autowired
     private PaymentService paymentService;
 
-    @PostMapping("/create-order")
+    @PostMapping("/create")
     public ResponseEntity<PaymentResponse> createOrder(@RequestBody PaymentRequest request) {
         try {
             PaymentResponse response = paymentService.createOrder(request);

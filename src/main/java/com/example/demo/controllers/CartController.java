@@ -29,8 +29,7 @@ public class CartController {
     }
 
     @DeleteMapping("/clear")
-    public ResponseEntity<String> clearCart() {
-        String message = cartService.clearCart();
-        return ResponseEntity.ok(message);
+    public String clearCart() {
+        return cartService.clearCart();
     }
 }
