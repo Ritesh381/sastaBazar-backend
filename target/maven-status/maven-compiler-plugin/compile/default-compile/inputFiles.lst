@@ -1,6 +1,6 @@
 /Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/SastaBazarApplication.java
-/Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/client/PaymentServiceClient.java
-/Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/config/RestTemplateConfig.java
+/Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/client/MockPaymentClient.java
+/Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/config/RazorpayConfig.java
 /Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/controllers/CartController.java
 /Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/controllers/OrderController.java
 /Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/controllers/PaymentController.java
@@ -10,6 +10,8 @@
 /Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/dto/CreateProduct.java
 /Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/dto/OrderResponse.java
 /Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/dto/PaymentRequest.java
+/Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/dto/PaymentResponse.java
+/Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/dto/PaymentVerificationRequest.java
 /Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/dto/PaymentWebhookRequest.java
 /Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/models/Cart_Item.java
 /Users/riteshprajapati/Desktop/spring-boot-course-sst-B-temp/razor-pay/src/main/java/com/example/demo/models/Order.java

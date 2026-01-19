@@ -1,16 +1,19 @@
 package com.example.demo.models;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
 
+@Document(collection = "payments")
 public class Payment {
     @Id
     private String id;
-    private String orderId;
+    private String orderId; // Internal order ID (MongoDB)
     private Double amount;
     private Status status;
-    private String paymentId;
+    private String paymentId; // Razorpay order ID (order_xxx)
+    private String razorpayPaymentId; // Razorpay payment ID (pay_xxx) - set after payment
     private Instant createdAt;
 
     public String getId() {
@@ -51,6 +54,14 @@ public class Payment {
 
     public void setPaymentId(String paymentId) {
         this.paymentId = paymentId;
+    }
+
+    public String getRazorpayPaymentId() {
+        return razorpayPaymentId;
+    }
+
+    public void setRazorpayPaymentId(String razorpayPaymentId) {
+        this.razorpayPaymentId = razorpayPaymentId;
     }
 
     public Instant getCreatedAt() {
